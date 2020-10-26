@@ -20,14 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edf9c080-c9d9-42af-8cb7-51a1d56a1628" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Skyroads/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Skyroads/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Skyroads/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Skyroads/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/AudioManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ShipMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ShipMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +55,9 @@
         <option value="$PROJECT_DIR$/Assets/Script/Score.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Music.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/AudioManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayerEvents.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ShipMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayerEvents.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/AudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/UIManager.cs" />
       </list>
     </option>
@@ -115,7 +112,7 @@
       <workItem from="1602492132482" duration="227000" />
       <workItem from="1602492397012" duration="4359000" />
       <workItem from="1603709375432" duration="4000" />
-      <workItem from="1603709387194" duration="2048000" />
+      <workItem from="1603709387194" duration="3402000" />
     </task>
     <servers />
   </component>

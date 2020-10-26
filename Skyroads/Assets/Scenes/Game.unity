@@ -6756,7 +6756,7 @@ GameObject:
   - component: {fileID: 606965122}
   - component: {fileID: 606965123}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: SoundsS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11768,7 +11768,7 @@ GameObject:
   - component: {fileID: 845321157}
   - component: {fileID: 845321158}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MusicS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12192,6 +12192,8 @@ MonoBehaviour:
   pauseBackButton: {fileID: 2033421743}
   pauseMain: {fileID: 1940134474}
   pauseSettings: {fileID: 121956987}
+  musicSlider: {fileID: 845321158}
+  soundsSlider: {fileID: 606965123}
 --- !u!1 &911294914
 GameObject:
   m_ObjectHideFlags: 0
