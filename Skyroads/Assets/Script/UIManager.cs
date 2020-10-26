@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.CSharp.RuntimeBinder;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +8,16 @@ public class UIManager : MonoBehaviour
     private Text endScoreText, endHighscoreText, endTimeText, endAsteroidsText;
     private GameManager gameManager;
     private Transform inGameUI, endGameUI, pauseUI;
-    private Button restartButton, quitButton, pauseResumeButton, pauseQuitButton;
+    private Button restartButton, quitButton;
     private GameObject startPanel;
     private Text timerText, scoreText, hightScoreText, asteroidsText;
+
+    [SerializeField] private Button pauseResumeButton;
+    [SerializeField] private Button pauseQuitButton;
+    [SerializeField] private Button pauseSettingsButton;
+    [SerializeField] private Button pauseBackButton;
+    [SerializeField] private GameObject pauseMain;
+    [SerializeField] private GameObject pauseSettings;
 
     public String ScoreText
     {
@@ -39,27 +45,49 @@ public class UIManager : MonoBehaviour
         endHighscoreText = endGameUI.Find("Highscore").GetComponent<Text>();
         restartButton = endGameUI.Find("Restart").GetComponent<Button>();
         quitButton = endGameUI.Find("Quit").GetComponent<Button>();
-        pauseResumeButton = pauseUI.Find("Resume").GetComponent<Button>();
-        pauseQuitButton = pauseUI.Find("Quit").GetComponent<Button>();
         congratMessage = endGameUI.Find("Message").gameObject;
 
         inGameUI.gameObject.SetActive(false);
         pauseUI.gameObject.SetActive(false);
 
         restartButton.onClick.AddListener(RestartGame);
-        quitButton.onClick.AddListener(() => Application.Quit());
-        pauseQuitButton.onClick.AddListener(() => Application.Quit());
+        quitButton.onClick.AddListener(() =>
+        {
+            PlayerEvents.PlaySound(SoundType.EndGameButtons);
+            Application.Quit();
+        });
+        pauseQuitButton.onClick.AddListener(() =>
+        {
+            PlayerEvents.PlaySound(SoundType.EndGameButtons);
+            Application.Quit();
+        });
         pauseResumeButton.onClick.AddListener(ResumeGame);
+        
+        pauseSettingsButton.onClick.AddListener(() =>
+        {
+            PlayerEvents.PlaySound(SoundType.SettingButton);
+            pauseMain.SetActive(false);
+            pauseSettings.SetActive(true);
+        });
+        
+        pauseBackButton.onClick.AddListener(() =>
+        {
+            PlayerEvents.PlaySound(SoundType.SettingButton);
+            pauseMain.SetActive(true);
+            pauseSettings.SetActive(false);
+        });
     }
 
     private void RestartGame()
     {
+        PlayerEvents.PlaySound(SoundType.EndGameButtons);
         gameManager.RestartGame();
     }
 
     //close pause UI and continue game
     private void ResumeGame()
     {
+        PlayerEvents.PlaySound(SoundType.EndGameButtons);
         pauseUI.gameObject.SetActive(false);
         inGameUI.gameObject.SetActive(true);
         gameManager.PauseGame(false);

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerEvents : MonoBehaviour
 {
@@ -6,10 +7,13 @@ public class PlayerEvents : MonoBehaviour
 
     public delegate void OnScoreUp(int amount, bool isAsteroid);
 
+    public static event Action<SoundType> OnPlaySound; 
+
     private void Awake()
     {
         UpPlayerScore = null;
         PlayerDeath = null;
+        OnPlaySound = null;
     }
 
     public static event OnScoreUp UpPlayerScore;
@@ -26,5 +30,10 @@ public class PlayerEvents : MonoBehaviour
     public static void FirePlayerDeath()
     {
         PlayerDeath?.Invoke();
+    }
+
+    public static void PlaySound(SoundType obj)
+    {
+        OnPlaySound?.Invoke(obj);
     }
 }

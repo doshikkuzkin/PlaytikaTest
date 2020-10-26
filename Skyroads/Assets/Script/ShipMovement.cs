@@ -82,6 +82,7 @@ public class ShipMovement : MonoBehaviour
             moving = false;
             //fire loose event
             PlayerEvents.FirePlayerDeath();
+            PlayerEvents.PlaySound(SoundType.Asteroid);
         }
     }
 
