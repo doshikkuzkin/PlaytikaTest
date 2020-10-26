@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMain;
     [SerializeField] private GameObject pauseSettings;
 
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider soundsSlider;
+
     public String ScoreText
     {
         set
@@ -75,7 +78,14 @@ public class UIManager : MonoBehaviour
             PlayerEvents.PlaySound(SoundType.SettingButton);
             pauseMain.SetActive(true);
             pauseSettings.SetActive(false);
+            PlayerPrefs.Save();
         });
+        
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1);
+        soundsSlider.value = PlayerPrefs.GetFloat("SoundsVolume", 1);
+        
+        musicSlider.onValueChanged.AddListener(PlayerEvents.ChangeMusicVolume);
+        soundsSlider.onValueChanged.AddListener(PlayerEvents.ChangeSoundsVolume);
     }
 
     private void RestartGame()

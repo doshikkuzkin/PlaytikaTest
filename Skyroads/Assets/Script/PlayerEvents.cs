@@ -7,13 +7,19 @@ public class PlayerEvents : MonoBehaviour
 
     public delegate void OnScoreUp(int amount, bool isAsteroid);
 
-    public static event Action<SoundType> OnPlaySound; 
+    public static event Action<SoundType> OnPlaySound;
+
+    public static event Action<float> OnMusicVolumeChange;
+    public static event Action<float> OnSoundsVolumeChange;
+    
 
     private void Awake()
     {
         UpPlayerScore = null;
         PlayerDeath = null;
         OnPlaySound = null;
+        OnMusicVolumeChange = null;
+        OnSoundsVolumeChange = null;
     }
 
     public static event OnScoreUp UpPlayerScore;
@@ -35,5 +41,15 @@ public class PlayerEvents : MonoBehaviour
     public static void PlaySound(SoundType obj)
     {
         OnPlaySound?.Invoke(obj);
+    }
+
+    public static void ChangeMusicVolume(float obj)
+    {
+        OnMusicVolumeChange?.Invoke(obj);
+    }
+
+    public static void ChangeSoundsVolume(float obj)
+    {
+        OnSoundsVolumeChange?.Invoke(obj);
     }
 }
