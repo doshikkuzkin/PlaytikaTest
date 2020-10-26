@@ -14,6 +14,18 @@ public class AudioManager : MonoBehaviour
     private float musicVolume = 1f;
     private float soundsVolume = 1f;
 
+    private void OnValidate()
+    {
+        if (endGameButtons == null || settings == null || asteroid == null)
+        {
+            enabled = false;
+        }
+        else
+        {
+            enabled = true;
+        }
+    }
+
     private void Awake()
     {
         musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
@@ -26,17 +38,23 @@ public class AudioManager : MonoBehaviour
         sounds = GetComponent<AudioSource>();
 
         PlayerEvents.OnPlaySound += PlaySound;
-        PlayerEvents.OnMusicVolumeChange += f => ChangeVolume(backgroundMusic, f, "MusicVolume");
-        PlayerEvents.OnSoundsVolumeChange += f => ChangeVolume(sounds, f, "SoundsVolume");
+        PlayerEvents.OnMusicVolumeChange += ChangeMusicVolume;
+        PlayerEvents.OnSoundsVolumeChange += ChangeSoundsVolume;
 
         sounds.volume = soundsVolume;
         backgroundMusic.volume = musicVolume;
     }
 
-    private void ChangeVolume(AudioSource audioSource, float value, string saveName)
+    private void ChangeMusicVolume(float value)
     {
-        audioSource.volume = value;
-        PlayerPrefs.SetFloat(saveName, value);
+        backgroundMusic.volume = value;
+        PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+    
+    private void ChangeSoundsVolume(float value)
+    {
+        sounds.volume = value;
+        PlayerPrefs.SetFloat("SoundsVolume", value);
     }
 
     private void PlaySound(SoundType soundType)
@@ -53,6 +71,13 @@ public class AudioManager : MonoBehaviour
                 sounds.PlayOneShot(asteroid);
                 break;
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerEvents.OnMusicVolumeChange -= ChangeMusicVolume;
+        PlayerEvents.OnSoundsVolumeChange -= ChangeSoundsVolume;
+        PlayerEvents.OnPlaySound -= PlaySound;
     }
 }
 

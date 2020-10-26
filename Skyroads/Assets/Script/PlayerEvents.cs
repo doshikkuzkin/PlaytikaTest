@@ -18,6 +18,8 @@ public class PlayerEvents : MonoBehaviour
         UpPlayerScore = null;
         PlayerDeath = null;
         OnPlaySound = null;
+        OnMusicVolumeChange = null;
+        OnSoundsVolumeChange = null;
     }
 
     public static event OnScoreUp UpPlayerScore;
